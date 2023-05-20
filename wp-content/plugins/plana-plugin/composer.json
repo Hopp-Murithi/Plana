@@ -1,0 +1,17 @@
+{
+    "name": "r00t/plana-plugin",
+    "description": "This is a weekend project. We are creating a ticket management system",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "0xAckerMan",
+            "email": "joelkores1@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Inc\\":"./inc"}
+    }
+}

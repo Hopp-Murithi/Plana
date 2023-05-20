@@ -1,0 +1,15 @@
+/* 
+    Theme Name: Plana theme
+    Theme URI: http://plana.etc
+    Author: KJoel and Hope
+    Version: 1.0.0
+    Author URI: https://hope-murithi.netlify.app/
+    Description: This is a custom theme built for an event planner.
+    Licence: GNU General Public Licence V2 or later
+    Licence URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+    Tags: events,planner, 
+*/
+
+@tailwind base;
+@tatlwind components;
+@tailwind utilities;

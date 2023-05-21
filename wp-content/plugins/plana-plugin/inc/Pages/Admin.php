@@ -28,7 +28,7 @@ $this-> callbacks = new AdminCallbacks();
         $this->setPages();
         $this->setSubPages();
 
-        $this->settings->addPages($this->pages)->withSubPage('create Events')-> addSubPages($this->subpages) ->register();
+        $this->settings->addPages($this->pages)->withSubPage('My Events')-> addSubPages($this->subpages) ->register();
         // $this->settings->addPages($this->pages)->withSubPage('Dashboard')-> addSubPages($this->subpages) ->reg();
     }
 
@@ -39,7 +39,7 @@ $this-> callbacks = new AdminCallbacks();
             'menu_title' => 'Manage Events',
             'capability' => 'manage_options',
             'menu_slug' => 'events',
-            'callback' => array($this->callbacks, 'adminCreate'),
+            'callback' => array($this->callbacks, 'Dashboard'),
             'icon_url' => 'dashicons-groups',
             'position' => 110
             ],
@@ -51,11 +51,20 @@ $this-> callbacks = new AdminCallbacks();
         $this->subpages = array(
             array(
                 'parent_slug' => 'events',
+                'page_title' => 'Add Events',
+                'menu_title' => 'Create Event',
+                'capability' => 'manage_options',
+                'menu_slug' => 'create',
+                'callback' => array($this->callbacks, 'createEvents'),
+            ),
+
+            array(
+                'parent_slug' => 'events',
                 'page_title' => 'Attendees',
-                'menu_title' => 'Manage Attendees',
+                'menu_title' => 'Attendees',
                 'capability' => 'manage_options',
                 'menu_slug' => 'attendees',
-                'callback' => array( $this->callbacks, 'adminAttendees' ),
+                'callback' => array( $this->callbacks, 'Dashboard' ),
             ),
 
         );

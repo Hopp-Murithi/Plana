@@ -13,14 +13,18 @@ use Inc\Base\BaseController;
 
 class AdminCallbacks extends BaseController
 {
-	public function adminCreate()
+	public function Dashboard()
 	{
-		return require_once( "$this->plugin_path/templates/createEvent.php" );
+		return require_once( "$this->plugin_path/templates/allEvents.php" );
 	}
 
 	public function adminAttendees()
 	{
-		return require_once( "$this->plugin_path/templates/allEvents.php" );
+		return require_once( "$this->plugin_path/templates/attendees.php" );
+	}
+
+	public function createEvents(){
+		return require_once("$this->plugin_path/templates/createEvent.php");
 	}
 
 }

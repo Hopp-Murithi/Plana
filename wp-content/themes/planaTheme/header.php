@@ -15,14 +15,12 @@
   $logo = get_template_directory_uri() . '/assets/logo.png';
   ?>
   <?php if (is_user_logged_in()) {
-    echo '<div class="container-fluid"><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    echo '<nav class="navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
+          
         </ul>
       </div>
       
@@ -32,9 +30,9 @@
       <button>
         <a class="nav-link" href="#">Logout</a> </button>
       </div>
-    </nav></div>';
+    </nav>';
   } else{
-    echo'<div class="container-fluid"><nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    echo'<nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
     
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -51,15 +49,24 @@
     <button>
       <a class="nav-link" href="#">Login</a> </button>
     </div>
-  </nav></div>';
+  </nav>';
   }?>
   <style>
+     body {
+      margin: 0;
+      padding: 0;
+    }
+    nav{
+      margin-top: -32px;
+    }
     img {
       width: 60px;
       margin: 0 5px;
       border-radius: 50%;
     }
-
+.about{
+  color: white;
+}
     button {
       background-color: #9B2915;
       color: white;

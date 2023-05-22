@@ -64,7 +64,7 @@ $this-> callbacks = new AdminCallbacks();
                 'menu_title' => 'Attendees',
                 'capability' => 'manage_options',
                 'menu_slug' => 'attendees',
-                'callback' => array( $this->callbacks, 'Dashboard' ),
+                'callback' => array( $this->callbacks, 'getAttendees' ),
             ),
 
         );

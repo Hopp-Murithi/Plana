@@ -16,6 +16,7 @@ final class Init{
             Base\Enqueue::class,
             Pages\CreateEvents::class,
             Base\SettingsLinks::class
+            
         ];
     }
     /**

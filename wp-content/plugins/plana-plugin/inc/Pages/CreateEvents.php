@@ -28,7 +28,7 @@ class CreateEvents {
             pricevip VARCHAR(30) NOT NULL,
             vip_tickets INT NOT NULL,
             regular_tickets INT NOT NULL,
-            image BLOB NOT NULL
+            image_url VARCHAR(255) NOT NULL
         )";
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -48,8 +48,7 @@ class CreateEvents {
             $pricevip = $_POST['price-vip'];
             $vip_tickets = $_POST['vip_tickets'];
             $regular_tickets = $_POST['regular_tickets'];
-            $imageFile = $_FILES['image'];
-            $imageData = file_get_contents($imageFile['tmp_name']);
+            $image_url = $_POST['image_url'];
 
             $wpdb->insert(
                 $table_name,
@@ -62,7 +61,7 @@ class CreateEvents {
                     'pricevip' => $pricevip,
                     'vip_tickets' => $vip_tickets,
                     'regular_tickets' => $regular_tickets,
-                    'image' => $imageData
+                    'image_url' => $image_url
                 ),
                 array(
                     '%s',
@@ -79,23 +78,23 @@ class CreateEvents {
         }
     }
 
-    public function delete_event() {
-        if (isset($_GET['event_id'])) {
-            global $wpdb;
-            $table_name = $wpdb->prefix . 'events';
+    // public function delete_event() {
+    //     if (isset($_GET['event_id'])) {
+    //         global $wpdb;
+    //         $table_name = $wpdb->prefix . 'events';
     
-            $event_id = $_GET['event_id'];
+    //         $event_id = $_GET['event_id'];
 
-            $wpdb->delete(
-                $table_name,
-                array('id' => $event_id),
-                array('%d')
-            );
+    //         $wpdb->delete(
+    //             $table_name,
+    //             array('id' => $event_id),
+    //             array('%d')
+    //         );
     
-            wp_redirect(admin_url('admin.php?page=events'));
-            exit;
-        }
-    }
+    //         wp_redirect(admin_url('admin.php?page=events'));
+    //         exit;
+    //     }
+    // }
     
     public function update_event() {
         if (isset($_POST['update'])) {
@@ -112,8 +111,7 @@ class CreateEvents {
             $pricevip = $_POST['price-vip'];
             $vip_tickets = $_POST['vip_tickets'];
             $regular_tickets = $_POST['regular_tickets'];
-            $imageFile = $_FILES['image'];
-            $imageData = file_get_contents($imageFile['tmp_name']);
+            $image_url = $_POST['image_url'];
     
             $wpdb->update(
                 $table_name,
@@ -126,7 +124,7 @@ class CreateEvents {
                     'pricevip' => $pricevip,
                     'vip_tickets' => $vip_tickets,
                     'regular_tickets' => $regular_tickets,
-                    'image' => $imageData
+                    'image_url' => $image_url
                 ),
                 array('id' => $update_id),
                 array(
@@ -143,10 +141,8 @@ class CreateEvents {
                 array('%d')
             );
     
-            // wp_redirect('http://localhost/Plana/wp-admin/admin.php?page=update&event_id=' . $update_id);
+            wp_redirect('http://localhost/Plana/wp-admin/admin.php?page=update&event_id=' . $update_id);
             exit;
         }
     }
-    
-    
 }

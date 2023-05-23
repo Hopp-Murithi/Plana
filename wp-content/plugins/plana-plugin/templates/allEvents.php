@@ -16,6 +16,7 @@ if ($rawdata) {
     echo '<th>Price (VIP)</th>';
     echo '<th>VIP Tickets</th>';
     echo '<th>Regular Tickets</th>';
+    echo '<th>Image</th>';
     echo '<th>Actions</th>';
     echo '</tr>';
     echo '</thead>';
@@ -31,12 +32,13 @@ if ($rawdata) {
         echo '<td>' . $event->pricevip . '</td>';
         echo '<td>' . $event->vip_tickets . '</td>';
         echo '<td>' . $event->regular_tickets . '</td>';
+        echo '<td><img src="' . $event->image_url . '" alt="Event Image" width="100"></td>';
         echo '<td>';
         echo '<form method="post" action="">';
         echo '<input type="hidden" name="event_id" value="' . $event->id . '">';
         echo '<input type="submit" value="Delete" name="delete_event">';
         echo ' | ';
-        echo '<a href="?action=update&event_id=' . $event->id . '">Update</a>';
+        echo '<a href="?page=update&event_id=' . $event->id . '">Update</a>';
         echo '</form>';
         echo '</td>';
         echo '</tr>';

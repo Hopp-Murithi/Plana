@@ -1,52 +1,49 @@
-<?php get_header() ?>
 <?php
-// Check if user is already logged in
 if (is_user_logged_in()) {
-    wp_redirect('/plana'); // Redirect to dashboard if already logged in
+    wp_redirect('http://localhost/Plana');
     exit;
 }
 
-// Check if form was submitted
-if (isset($_POST['submit'])) {
-    // Verify user credentials
-    $user_email = $_POST['email'];
+if (isset($_POST['login'])) {
+    $attendee_email = $_POST['email'];
     $user_password = $_POST['password'];
-    $creds = array(
-        'user_login' => $user_email,
-        'user_password' => $user_password,
-        'remember' => true
-    );
-    $user = wp_signon($creds, false);
 
-    
-    if (!is_wp_error($user)) {
-        // Display error message if authentication failed
+    $user = get_user_by('email', $attendee_email);
+
+    if (!$user) {
+        echo "Invalid attendee email.";
+        exit;
+    }
+
+    if (wp_check_password($user_password, $user->user_pass, $user->ID)) {
         wp_set_current_user($user->ID);
         wp_set_auth_cookie($user->ID);
         do_action('wp_login', $user->user_login, $user);
 
-        wp_redirect('/plana');
+        wp_redirect('http://localhost/plana/');
         exit;
-      }
-      echo "server error";
+    } else {
+        echo "Invalid password.";
+        exit;
     }
+}
 ?>
-
+<?php get_header() ?>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <div class="card login-card">
 
         <div class="card-body">
-          <form>
-            <h1 class="d-flex align-items-center justify-content-center ">Login</h1>
+          <form method="post">
+            <h1 class="d-flex align-items-center justify-content-center">Login</h1>
             <div class="form-group">
               <input type="email" name="email" class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
               <input type="password" name="password" class="form-control" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            <button type="submit" name="login" class="btn btn-primary btn-block">Log In</button>
           </form>
         </div>
       </div>
@@ -64,9 +61,9 @@ if (isset($_POST['submit'])) {
     line-height: 1.5;
   }
 
-  h1{
-      color:#3066BE;
-    }
+  h1 {
+    color: #3066BE;
+  }
 
   .login-card {
     background-color: #ffffff;

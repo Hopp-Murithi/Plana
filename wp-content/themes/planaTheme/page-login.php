@@ -34,11 +34,11 @@
   }
 
   h1{
-      color:#DFDFDF;
+      color:#3066BE;
     }
 
   .login-card {
-    background-color: #3066BE;
+    background-color: #ffffff;
     border-radius: 10px;
     color: #DFDFDF;
     margin: 0 auto;
@@ -70,7 +70,7 @@
   }
 
   .login-card button[type="submit"] {
-    background-color: #9B2915;
+    background-color: #3066BE;
     width: 100%;
     color: white;
     font-weight: 600;
@@ -82,7 +82,7 @@
   }
 
   .login-card button[type="submit"]:hover {
-    background-color: #EE0A0A;
+    background-color: #005CFB;
     color: white;
   }
 </style>

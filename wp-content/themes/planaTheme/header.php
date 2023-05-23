@@ -15,7 +15,7 @@
   $logo = get_template_directory_uri() . '/assets/logo.png';
   ?>
   <?php if (is_user_logged_in()) {
-    echo '<nav class="navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
+    echo '<nav class=" nav-loggedin navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
       
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -25,10 +25,11 @@
       </div>
       
       <div class="navbar-nav ml-auto"> <button>
-      <a class="nav-link tickets" href="#">My Tickets</a>
+      <a class="nav-link tickets" href="http://localhost/plana/index.php/my-tickets/">My Tickets</a>
       </button>
       <button>
-        <a class="nav-link" href="#">Logout</a> </button>
+     
+      <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="Logout">Logout</a> </button>
       </div>
     </nav>';
   } else{
@@ -43,11 +44,11 @@
       </ul>
     </div>
     
-    <div class="navbar-nav ml-auto"> <button>
+    <div class="btn-color navbar-nav ml-auto"> <button>
     <a class="nav-link tickets" href="#">Register</a>
     </button>
     <button>
-      <a class="nav-link" href="#">Login</a> </button>
+      <a class="nav-link" href="http://localhost/plana/index.php/login/">Login</a> </button>
     </div>
   </nav>';
   }?>
@@ -56,7 +57,7 @@
       margin: 0;
       padding: 0;
     }
-    nav{
+    .nav-loggedin{
       margin-top: -32px;
     }
     img {
@@ -65,12 +66,13 @@
       border-radius: 50%;
     }
 .about{
-  color: white;
+  color: #ffffff;
 }
     button {
-      background-color: #9B2915;
-      color: white;
+      background-color: #005CFB;
+      color: #9B2915;
       margin: 5px;
       border-radius: 10px;
     }
+    
   </style>

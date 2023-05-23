@@ -23,6 +23,11 @@ class AdminCallbacks extends BaseController
 		return require_once( "$this->plugin_path/templates/attendees.php" );
 	}
 
+	public function updateEvents()
+	{
+		return require_once("$this->plugin_path/templates/update.php");
+	}
+
 	public function createEvents(){
 		return require_once("$this->plugin_path/templates/createEvent.php");
 	}

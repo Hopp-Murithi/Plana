@@ -32,9 +32,12 @@ if ($rawdata) {
         echo '<td>' . $event->vip_tickets . '</td>';
         echo '<td>' . $event->regular_tickets . '</td>';
         echo '<td>';
-        echo '<a href="?action=delete&event_id=' . $event->id . '">Delete</a>';
+        echo '<form method="post" action="">';
+        echo '<input type="hidden" name="event_id" value="' . $event->id . '">';
+        echo '<input type="submit" value="Delete" name="delete_event">';
         echo ' | ';
         echo '<a href="?action=update&event_id=' . $event->id . '">Update</a>';
+        echo '</form>';
         echo '</td>';
         echo '</tr>';
     }
@@ -46,22 +49,18 @@ if ($rawdata) {
 }
 
 // Logic for delete event
-// Logic for delete event
-if (isset($_GET['event_id']) && isset($_GET['action']) && $_GET['action'] === 'delete') {
-    global $wpdb;
-    $table_name = $wpdb->prefix . 'events';
-
-    $event_id = $_GET['event_id'];
+if (isset($_POST['delete_event'])) {
+    $event_id = $_POST['event_id'];
 
     // Delete event from the database
     $wpdb->delete(
-        $table_name,
+        $table,
         array('id' => $event_id),
         array('%d')
     );
 
     // Refresh the page after deleting the event
-    wp_redirect(admin_url('admin.php?page=events'));
+    wp_redirect(admin_url('/admin.php?page=events'));
     exit();
 }
 
@@ -70,8 +69,7 @@ if (isset($_GET['event_id']) && isset($_GET['action']) && $_GET['action'] === 'u
     $event_id = $_GET['event_id'];
 
     // Redirect to the update page with the event ID as a parameter
-    wp_redirect(home_url('/update-event/?event_id=' . $event_id));
+    wp_redirect(admin_url('/admin.php?page=update&update_id=' . $event_id));
     exit();
 }
-
 ?>

@@ -15,6 +15,7 @@ final class Init{
             Pages\Admin::class,
             Base\Enqueue::class,
             Pages\CreateEvents::class,
+            Pages\MyTickets::class,
             Base\SettingsLinks::class
             
         ];

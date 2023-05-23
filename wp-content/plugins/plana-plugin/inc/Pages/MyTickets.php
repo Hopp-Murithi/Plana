@@ -6,8 +6,23 @@
 namespace Inc\Pages;
 
 class MyTickets {
-    public function regtickets() {
+    public function register() {
+        $this->create_user_tickets_table();
         $this->handle_ticket_purchase();
+    }
+
+    private function create_user_tickets_table() {
+        global $wpdb;
+        $user_tickets_table = $wpdb->prefix . 'user_tickets';
+
+        $wpdb->query("CREATE TABLE IF NOT EXISTS $user_tickets_table (
+            id INT NOT NULL AUTO_INCREMENT,
+            user_id INT NOT NULL,
+            ticket_id INT NOT NULL,
+            PRIMARY KEY (id),
+            FOREIGN KEY (user_id) REFERENCES {$wpdb->prefix}users(ID),
+            FOREIGN KEY (ticket_id) REFERENCES {$wpdb->prefix}events(id)
+        );");
     }
 
     private function handle_ticket_purchase() {

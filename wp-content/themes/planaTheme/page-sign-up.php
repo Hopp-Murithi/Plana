@@ -1,5 +1,55 @@
 <?php get_header() ?>
+<?php
 
+if (isset($_POST['submit'])) : ?>
+  <?php
+  // fetch user inputs
+  $fullname = $_POST['full_name'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirm_password = $_POST['confirm_password'];
+
+  // validate user inputs
+  $errors = array();
+
+  if (empty($fullname)) {
+    $errors['full_name'] = 'Please enter a username';
+  }
+
+  if (empty($email)) {
+    $errors['email'] = 'Please enter an email address';
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors['email'] = 'Please enter a valid email address';
+  }
+
+  if (empty($password)) {
+    $errors['password'] = 'Please enter a password';
+  }
+
+  if ($password !== $confirm_password) {
+    $errors['confirm_password'] = 'Passwords do not match';
+  }
+
+  // create new user if there are no errors
+  if (empty($errors)) {
+    $user_id = wp_create_user($fullname, $password, $email);
+    if (is_wp_error($user_id)) {
+      var_dump($user_id);
+      echo '<p class="signup-error">An error occurred while creating your account. Please try again later.</p>';
+    } else {
+      wp_update_user(array('ID' => $user_id, 'role' => 'subscriber'));
+      // echo '<p class="signup-success">Your account has been created successfully. Please login using your credentials.</p>';
+      echo("<script>location.href = 'http://localhost/plana';</script>");
+      // exit(wp_redirect("Location: /shopit/sign-in"));
+    }
+  } else {
+    // display errors
+    foreach ($errors as $error) {
+      echo '<p class="signup-error">' . $error . '</p>';
+    }
+  }
+  ?>
+<?php endif; ?>
 
 
 <div class="container">
@@ -11,16 +61,16 @@
             <form>
               <h1 class="d-flex align-items-center justify-content-center ">Register</h1>
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Full Name">
+                <input type="text" class="form-control" name="full_name" placeholder="Full Name">
               </div>
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email">
+                <input type="email" name="email" class="form-control" placeholder="Email">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Confirm Password">
+                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
             </form>

@@ -39,10 +39,10 @@ body {
   line-height: 1.5;
 }
     h1{
-      color:#DFDFDF;
+      color:#3066BE;
     }
     .signup-card {
-      background-color: #3066BE;
+      background-color: #ffffff;
       border-radius: 10px;
       color: #DFDFDF;
       margin: 0 auto;
@@ -67,7 +67,7 @@ body {
       margin-bottom: 20px;
     }
     .signup-card button[type="submit"] {
-        background-color:  #9B2915;;width: 100%;
+        background-color:  #3066BE;;width: 100%;
         color: white;font-weight:600;
         margin-top: 20px;
         padding: 10px 20px;
@@ -77,7 +77,7 @@ body {
     }
 
     .signup-card button[type="submit"]:hover {
-        background-color: #EE0A0A;color:white;
+        background-color: #005CFB;color:white;
     }
     
   </style>

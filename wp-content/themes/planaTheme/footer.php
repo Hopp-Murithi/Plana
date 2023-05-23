@@ -21,9 +21,9 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
         </ul>
       </div>
       <div class="col-md-6 text-md-right">
-        <img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0">
+        <img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo">
         <p>The event planner</p>
-        <p><a href="about.html">About</a></p>
+        <p class="about"><a href="about.html">About</a></p>
         <p>&copy; 2023 Plana. All rights reserved.</p>
       </div>
     </div>
@@ -55,8 +55,8 @@ footer{margin: 10px;padding: 10px;}
 h2{
   color:white;
   text-decoration: double;
-}  button {
-    background-color: #9B2915;
+}  .about {
+    width: auto;
     color: white;
     margin: 5px;
     border-radius: 10px;

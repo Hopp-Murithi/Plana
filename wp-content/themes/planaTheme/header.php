@@ -34,7 +34,7 @@
     </nav>';
   } else{
     echo'<nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
+    <a class="navbar-brand" href="#"><img class="img" src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
     
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">

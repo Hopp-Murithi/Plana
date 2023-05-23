@@ -21,7 +21,7 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
         </ul>
       </div>
       <div class="col-md-6 text-md-right">
-        <img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo">
+        <img class="img" src="https://i.ibb.co/NrkcByb/logo.png" alt="logo">
         <p>The event planner</p>
         <p class="about"><a href="about.html">About</a></p>
         <p>&copy; 2023 Plana. All rights reserved.</p>
@@ -44,7 +44,7 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
     color: white;
   }
 footer{margin: 10px;padding: 10px;}
-  img {
+  .img {
     width: 60px;
     margin: 0 5px;
     border-radius: 50%;

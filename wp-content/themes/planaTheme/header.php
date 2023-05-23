@@ -16,7 +16,7 @@
   ?>
   <?php if (is_user_logged_in()) {
     echo '<nav class=" nav-loggedin navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href=""http://localhost/plana/"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
+      <a class="navbar-brand" href=""http://localhost/plana/"><img class="img" src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
@@ -60,7 +60,7 @@
     .nav-loggedin{
       margin-top: -32px;
     }
-    img {
+    .img {
       width: 60px;
       margin: 0 5px;
       border-radius: 50%;

@@ -67,6 +67,16 @@ $this-> callbacks = new AdminCallbacks();
                 'callback' => array( $this->callbacks, 'getAttendees' ),
             ),
 
+            array(
+                'parent_slug' => 'events',
+                'page_title' => 'update',
+                'menu_title' => 'Update Events ',
+                'capability' => 'manage_options',
+                'menu_slug' => 'update',
+                'callback' => array( $this->callbacks, 'updateEvents' ),
+            ),
+
+
         );
     }
 }

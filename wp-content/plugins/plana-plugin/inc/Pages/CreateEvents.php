@@ -10,7 +10,7 @@ class CreateEvents {
         $this->create_table();
         $this->add_events();
         $this->update_event();
-        $this->delete_event();
+        // $this->delete_event();
     }
 
     private function create_table() {
@@ -40,7 +40,6 @@ class CreateEvents {
             global $wpdb;
             $table_name = $wpdb->prefix . 'events';
 
-            // Retrieve form data
             $title = $_POST['title'];
             $description = $_POST['description'];
             $date = $_POST['date'];
@@ -52,7 +51,6 @@ class CreateEvents {
             $imageFile = $_FILES['image'];
             $imageData = file_get_contents($imageFile['tmp_name']);
 
-            // Insert data into the database
             $wpdb->insert(
                 $table_name,
                 array(
@@ -82,33 +80,30 @@ class CreateEvents {
     }
 
     public function delete_event() {
-        if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['event_id'])) {
+        if (isset($_GET['event_id'])) {
             global $wpdb;
             $table_name = $wpdb->prefix . 'events';
     
             $event_id = $_GET['event_id'];
-    
-            // Delete event from the database
+
             $wpdb->delete(
                 $table_name,
                 array('id' => $event_id),
                 array('%d')
             );
     
-            // Redirect back to the original page after deletion
-            wp_safe_redirect(admin_url('admin.php?page=events'));
+            wp_redirect(admin_url('admin.php?page=events'));
             exit;
         }
     }
     
-
     public function update_event() {
-        if (isset($_POST['update_event'])) {
+        if (isset($_POST['update'])) {
             global $wpdb;
             $table_name = $wpdb->prefix . 'events';
-
-            // Retrieve form data
-            $event_id = $_GET['event_id'];
+    
+            $update_id = $_GET['event_id']; 
+    
             $title = $_POST['title'];
             $description = $_POST['description'];
             $date = $_POST['date'];
@@ -119,8 +114,7 @@ class CreateEvents {
             $regular_tickets = $_POST['regular_tickets'];
             $imageFile = $_FILES['image'];
             $imageData = file_get_contents($imageFile['tmp_name']);
-
-            // Update data in the database
+    
             $wpdb->update(
                 $table_name,
                 array(
@@ -134,7 +128,7 @@ class CreateEvents {
                     'regular_tickets' => $regular_tickets,
                     'image' => $imageData
                 ),
-                array('id' => $event_id),
+                array('id' => $update_id),
                 array(
                     '%s',
                     '%s',
@@ -148,10 +142,11 @@ class CreateEvents {
                 ),
                 array('%d')
             );
-
-            // Redirect back to the original page after update
-            wp_redirect(admin_url('admin.php?page=events'));
+    
+            // wp_redirect('http://localhost/Plana/wp-admin/admin.php?page=update&event_id=' . $update_id);
             exit;
         }
     }
+    
+    
 }

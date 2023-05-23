@@ -1,34 +1,56 @@
 <?php
 if (is_user_logged_in()) {
-    wp_redirect('http://localhost/Plana');
+  $user = wp_get_current_user();
+  $user_roles = $user->roles;
+
+  if (in_array('administrator', $user_roles)) {
+    wp_redirect('http://localhost/plana/wp-admin/index.php');
     exit;
+  } elseif (in_array('contributor', $user_roles)) {
+    wp_redirect('http://localhost/plana/wp-admin/admin.php?page=events');
+    exit;
+  } elseif (in_array('subscriber', $user_roles)) {
+    wp_redirect('http://localhost/plana/');
+    exit;
+  }
 }
 
 if (isset($_POST['login'])) {
-    $attendee_email = $_POST['email'];
-    $user_password = $_POST['password'];
+  $attendee_email = $_POST['email'];
+  $user_password = $_POST['password'];
 
-    $user = get_user_by('email', $attendee_email);
+  $user = get_user_by('email', $attendee_email);
 
-    if (!$user) {
-        echo "Invalid attendee email.";
-        exit;
+  if (!$user) {
+    echo "Invalid attendee email.";
+    exit;
+  }
+
+  if (wp_check_password($user_password, $user->user_pass, $user->ID)) {
+    wp_set_current_user($user->ID);
+    wp_set_auth_cookie($user->ID);
+    do_action('wp_login', $user->user_login, $user);
+
+    $user_roles = $user->roles;
+
+    if (in_array('administrator', $user_roles)) {
+      wp_redirect('http://localhost/plana/wp-admin/index.php');
+      exit;
+    } elseif (in_array('contributor', $user_roles)) {
+      wp_redirect('http://localhost/plana/wp-admin/admin.php?page=events');
+      exit;
+    } elseif (in_array('subscriber', $user_roles)) {
+      wp_redirect('http://localhost/plana/');
+      exit;
     }
-
-    if (wp_check_password($user_password, $user->user_pass, $user->ID)) {
-        wp_set_current_user($user->ID);
-        wp_set_auth_cookie($user->ID);
-        do_action('wp_login', $user->user_login, $user);
-
-        wp_redirect('http://localhost/plana/');
-        exit;
-    } else {
-        echo "Invalid password.";
-        exit;
-    }
+  } else {
+    echo "Invalid password.";
+    exit;
+  }
 }
 ?>
 <?php get_header() ?>
+
 <div class="container">
   <div class="row">
     <div class="col-md-12">
@@ -36,7 +58,7 @@ if (isset($_POST['login'])) {
 
         <div class="card-body">
           <form method="post">
-            <h1 class="d-flex align-items-center justify-content-center">Login</h1>
+            <h1 class="d-flex align-items-center justify-content-center ">Login</h1>
             <div class="form-group">
               <input type="email" name="email" class="form-control" placeholder="Email">
             </div>
@@ -73,14 +95,6 @@ if (isset($_POST['login'])) {
     margin-top: 100px;
     max-width: 600px;
     overflow: hidden;
-  }
-
-  .login-card .card-image {
-    width: 50%;
-    float: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
   }
 
   .login-card .card-body {

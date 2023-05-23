@@ -101,7 +101,7 @@ class CreateEvents {
             global $wpdb;
             $table_name = $wpdb->prefix . 'events';
     
-            $update_id = $_GET['event_id']; 
+            $update_id = $_GET['event_id'];
     
             $title = $_POST['title'];
             $description = $_POST['description'];
@@ -141,8 +141,14 @@ class CreateEvents {
                 array('%d')
             );
     
-            wp_redirect('http://localhost/Plana/wp-admin/admin.php?page=update&event_id=' . $update_id);
-            exit;
+            if ($wpdb->last_error) {
+                echo '<p class="error-message">Failed to update event: ' . $wpdb->last_error . '</p>';
+            } else {
+                // JavaScript redirect to the page with all events
+                echo '<script>window.location.href = "' . admin_url('admin.php?page=events') . '";</script>';
+                exit;
+            }
         }
     }
+    
 }

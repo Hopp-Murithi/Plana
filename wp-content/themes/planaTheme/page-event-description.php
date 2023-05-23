@@ -10,7 +10,9 @@
     </div>
     <div class="col-md-6">
       <div class="text-end">
-        <button class="btn btn-primary">Buy Now</button>
+        <form action="" method="post">
+          <input type="submit" name="ticket_id" value="buy now">
+        </form>
       </div>
       <h2>Event Description</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor, leo ac maximus blandit, justo elit tincidunt risus, et lobortis dolor odio sed purus.</p>

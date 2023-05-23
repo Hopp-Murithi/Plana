@@ -16,7 +16,7 @@
   ?>
   <?php if (is_user_logged_in()) {
     echo '<nav class=" nav-loggedin navbar container-fluid navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
+      <a class="navbar-brand" href=""http://localhost/plana/"><img src="https://i.ibb.co/NrkcByb/logo.png" alt="logo" border="0"></a>
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
@@ -45,7 +45,7 @@
     </div>
     
     <div class="btn-color navbar-nav ml-auto"> <button>
-    <a class="nav-link tickets" href="#">Register</a>
+    <a class="nav-link tickets" href="http://localhost/plana/index.php/sign-up/">Register</a>
     </button>
     <button>
       <a class="nav-link" href="http://localhost/plana/index.php/login/">Login</a> </button>
@@ -70,9 +70,11 @@
 }
     button {
       background-color: #005CFB;
-      color: #9B2915;
+      color: white;
       margin: 5px;
       border-radius: 10px;
     }
-    
+    .btn-color{
+      color: #ffffff;
+    }
   </style>

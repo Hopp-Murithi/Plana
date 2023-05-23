@@ -21,7 +21,6 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
         </ul>
       </div>
       <div class="col-md-6 text-md-right">
-        <img class="img" src="https://i.ibb.co/NrkcByb/logo.png" alt="logo">
         <p>The event planner</p>
         <p class="about"><a href="about.html">About</a></p>
         <p>&copy; 2023 Plana. All rights reserved.</p>
@@ -35,7 +34,6 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
 
   body {
     font-size: 16px;
-
     font-family: 'PT Serif Caption', serif;
     line-height: 1.5;
   }

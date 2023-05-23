@@ -12,19 +12,16 @@ $events = $wpdb->get_results("SELECT * FROM $table");
         data-bs-ride="carousel">
         <div class="carousel-inner h-100">
             <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                <img src="https://client.gig.co.ke/eventpics/gev_568_banner_pic" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>
-                      Get some
-                    </h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1566932769119-7a1fb6d7ce23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3BvcnRzJTIwYWR2ZXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                <img src="https://client.gig.co.ke/eventpics/gev_636_banner_pic" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="...">
+                <img src="https://client.gig.co.ke/eventpics/gev_328_banner_pic" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -89,7 +86,7 @@ $events = $wpdb->get_results("SELECT * FROM $table");
   .carousel .carousel-item img {
     height: 100%;
     object-fit: cover;
-    background-size: cover;
+    
   }
 h5{
   color:white;
@@ -133,7 +130,7 @@ h5{
   }
 
   .price {
-    color: black;
+    color: re;
     font-weight: 600;
   }
 

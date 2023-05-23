@@ -16,12 +16,11 @@ class MyTickets {
         $user_tickets_table = $wpdb->prefix . 'user_tickets';
 
         $wpdb->query("CREATE TABLE IF NOT EXISTS $user_tickets_table (
-            id INT NOT NULL AUTO_INCREMENT,
+            id INT AUTO_INCREMENT PRIMARY KEY,
             user_id INT NOT NULL,
-            ticket_id INT NOT NULL,
-            PRIMARY KEY (id),
-            FOREIGN KEY (user_id) REFERENCES {$wpdb->prefix}users(ID),
-            FOREIGN KEY (ticket_id) REFERENCES {$wpdb->prefix}events(id)
+            ticket_id INT NOT NULL
+            
+
         );");
     }
 

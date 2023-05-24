@@ -21,13 +21,13 @@ echo $convertedDate;
 ?>
 </p>
       <p style=" color:#000000">Time: 7:00 PM</p>
-      <p style=" color:#9B2915;">Price:<?php echo $data[0]->price; ?> </p>
+      <p style=" color:#D00000;font-weight:600;">Price:<?php echo $data[0]->price; ?> </p>
       <p style=" color:#000000">Venue:<?php echo $data[0]->venue; ?></p>
     </div>
     <div class="col-md-6">
       <div class="text-end">
         <form action="" method="post">
-          <input type="submit" name="ticket_id" value="buy now">
+          <input  type="submit" name="ticket_id" value="Buy Now">
         </form>
       </div>
       <h2 style=" color:#9B2915;">More details...</h2>
@@ -46,6 +46,14 @@ echo $convertedDate;
   margin-top: 15px;
   border-radius: 6px;
   margin-bottom: 6px;
+}
+input[type="submit"]{
+ background-color:#EF1212 ;
+  color:#ffffff;
+  padding: 6px;
+  border:0;
+  margin: 8px;
+  border-radius: 6px;
 }
 </style>
 

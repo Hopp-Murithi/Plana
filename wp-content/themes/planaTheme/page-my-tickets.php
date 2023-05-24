@@ -1,50 +1,45 @@
-<?php get_header() ?>
-
 <?php
-$bag = get_template_directory_uri() . '/assets/bag.jpg';
-?>
+/*
+ * Template Name: My Tickets Template
+ */
 
-<div class="container-fluid">
-    <div class="row d-flex">
-        <div class=" row mb-2 mt-2 " style="background-color: #ffffff;width:100%;">
-            <p class="p-2  product-desc-title" style="font-weight:700;">CART(2)</p>
-            <hr>
+get_header();
 
-            <div class="col-md-2">
-                <div class="card  border-0 product-container">
-                    <div class="d-block mx-auto card-body">
-                        <!-- Product image -->
-                        <img src="<?php echo $bag ?>" alt="bag" class=" rounded  img-fluid">
-                        <div class="row">
+// Check if the user is logged in
+if (is_user_logged_in()) {
+    $current_user = wp_get_current_user();
+    $user_id = $current_user->ID;
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <!-- Product details -->
-                <div class="card border-0 product-container">
-                  
+    // Retrieve the user's tickets from the database
+    global $wpdb;
+    $user_tickets_table = $wpdb->prefix . 'user_tickets';
 
-                </div>
+    $query = $wpdb->prepare("SELECT * FROM $user_tickets_table WHERE user_id = %d", $user_id);
+    $user_tickets = $wpdb->get_results($query);
 
+    // Display the user's tickets
+    if (!empty($user_tickets)) {
+        echo '<h2>Your Tickets:</h2>';
 
-            </div>
-            <hr>
-        </div>
-
-
-    </div>
-
-<style>
-     @import url('https://fonts.googleapis.com/css?family=PT+Serif+Caption:400');
-
-body {
-  background: radial-gradient(#9B2915, #DFDFDF) no-repeat center center fixed;
-  font-size: 16px;
-  font-family: 'PT Serif Caption', serif;
-  line-height: 1.5;
+        echo '<div class="card-deck" style="display: flex; flex-flow: row wrap; color:black;">';
+        foreach ($user_tickets as $ticket) {
+            echo '<div class="card mb-3">';
+            echo '<div class="card-body text-dark">';
+            echo '<h5 class="card-title">Event ID: ' . $ticket->event_id . '</h5>';
+            echo '<p class="card-text">Ticket Type: ' . $ticket->ticket_type . '</p>';
+            echo '<p class="card-text">Price: ' . $ticket->ticket_price . '</p>';
+            echo '<p class="card-text">Quantity: ' . $ticket->ticket_quantity . '</p>';
+            echo '<p class="card-text">Purchase Date: ' . $ticket->purchase_date . '</p>';
+            echo '</div>';
+            echo '</div>';
+        }
+        echo '</div>';
+    } else {
+        echo 'You have not purchased any tickets.';
+    }
+} else {
+    echo 'Please log in to view your tickets.';
 }
 
-</style>
-    <?php get_footer() ?>
+get_footer();
+?>

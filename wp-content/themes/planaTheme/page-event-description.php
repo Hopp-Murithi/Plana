@@ -27,7 +27,7 @@ echo $convertedDate;
     <div class="col-md-6">
       <div class="text-end">
         <form action="" method="post">
-          <input type="submit" name="ticket_id" value="Buy Now">
+          <input  type="submit" name="ticket_id" value="Buy Now">
         </form>
       </div>
       <h2 style=" color:#9B2915;">More details...</h2>
@@ -48,9 +48,10 @@ echo $convertedDate;
   margin-bottom: 6px;
 }
 input[type="submit"]{
- background-color:#160FE7 ;
+ background-color:#EF1212 ;
   color:#ffffff;
   padding: 6px;
+  border:0;
   margin: 8px;
   border-radius: 6px;
 }

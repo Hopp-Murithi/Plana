@@ -26,17 +26,18 @@
       </div>
       
       <div class="navbar-nav ml-auto">
-       <div>
-      <a class="nav-link tickets logout" href="http://localhost/plana/index.php/my-tickets/">My Tickets</a>
+       <div style="background-color:#EF1212;border-radius:10px;color:white;">
+      <a class="nav-link tickets logout"  style="color:white;" href="http://localhost/plana/index.php/my-tickets/">My Tickets</a>
       </div>
       <div >
       <a class="nav-link tickets logout" href="<?php echo wp_logout_url(); ?>">Logout</a> </div>
       </div>
     </nav>';
   } else {
-    echo '<nav class=" nav-loggedin navbar container-fluid navbar-expand-lg navbar-dark bg-light">
-    <a class="navbar-brand" style="margin-left:8px;" href="http://localhost/plana/"><img class="img" src="https://i.ibb.co/FVLbTPm/planaa-low-resolution-color-logo.png" alt="logo" border="0"></a>
+    echo '<nav class="  navbar container-fluid navbar-expand-lg navbar-dark bg-light">
+    <a class="navbar-brand" style="margin-left:8px;" href=""http://localhost/plana/"><img class="img" src="https://i.ibb.co/FVLbTPm/planaa-low-resolution-color-logo.png" alt="logo" border="0"></a>
     
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         
@@ -44,14 +45,21 @@
     </div>
     
     <div class="navbar-nav ml-auto">
-     <div>
-    <a class="nav-link tickets logout" href="http://localhost/plana/index.php/sign-up/">Register</a>
+     <div style="background-color:#EF1212;border-radius:10px;color:white;margin-right:5px;">
+    <a class="nav-link tickets logout"  style="color:white;" href=http://localhost/plana/index.php/login/">Login</a>
     </div>
-    <div >
-    <a class="nav-link tickets logout" href="http://localhost/plana/index.php/login/">Login</a> </div>
+    <div style="background-color:#EF1212;border-radius:10px;color:white;">
+    <a class="nav-link tickets logout"  style="color:white;" href="http://localhost/plana/index.php/sign-up/">Register</a>
     </div>
   </nav>';
   } ?>
+
+
+
+
+
+
+
   <style>
     body {
       margin: 0;

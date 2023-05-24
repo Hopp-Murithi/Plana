@@ -41,7 +41,7 @@ $logo = get_template_directory_uri() . '/assets/logo.png';
   p {
     color: white;
   }
-footer{margin: 10px;padding: 10px;}
+footer{margin: 10px;padding: 10px; position: fixed; width: 100%; bottom: -2%; display: flex; margin-left: -12.5px;} 
   .img {
     width: 60px;
     margin: 0 5px;

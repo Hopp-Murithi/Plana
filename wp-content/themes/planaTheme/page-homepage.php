@@ -48,9 +48,9 @@ $events = $wpdb->get_results("SELECT * FROM $table");
                                     </div>
                                 </div>
                                 <div class="details">
-                                    <p class="date" style="color:#ffffff;font-weight:700;font-size: 22px;"><?php echo date('l, F j', strtotime($events[$j]->date)); ?>
+                                    <p class="date" style="color:#000000;font-weight:700;font-size: 22px;"><?php echo date('l, F j', strtotime($events[$j]->date)); ?>
 </p>
-                                    <p class="venue"><?php echo $events[$j]->title; ?></p>
+                                    <p class="venue" style="color:#000000;"><?php echo $events[$j]->title; ?></p>
                                 </div>
                             </a>
                         </div>
@@ -135,7 +135,7 @@ $events = $wpdb->get_results("SELECT * FROM $table");
     }
 
     .details {
-        background-color: #EF1212;
+        background-color: #ffffff;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         color: white;

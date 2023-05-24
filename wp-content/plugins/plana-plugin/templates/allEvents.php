@@ -9,7 +9,7 @@ if ($rawdata) {
     echo '<thead>';
     echo '<tr>';
     echo '<th>Title</th>';
-    echo '<th>Description</th>';
+   
     echo '<th>Date</th>';
     echo '<th>Venue</th>';
     echo '<th>Price</th>';
@@ -25,7 +25,7 @@ if ($rawdata) {
     foreach ($rawdata as $event) {
         echo '<tr>';
         echo '<td>' . $event->title . '</td>';
-        echo '<td>' . $event->description . '</td>';
+    
         echo '<td>' . $event->date . '</td>';
         echo '<td>' . $event->venue . '</td>';
         echo '<td>' . $event->price . '</td>';

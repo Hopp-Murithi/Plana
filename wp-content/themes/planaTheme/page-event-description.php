@@ -26,9 +26,12 @@ echo $convertedDate;
     </div>
     <div class="col-md-6">
       <div class="text-end">
-        <form action="" method="post">
+        <?php if(is_user_logged_in()) {
+          echo ' <form action="" method="post">
           <input  type="submit" name="ticket_id" value="Buy Now">
-        </form>
+        </form>';
+        } ?>
+       
       </div>
       <h2 style=" color:#9B2915;">More details...</h2>
       <p style=" color:#000000"><?php echo $data[0]->description; ?></p>

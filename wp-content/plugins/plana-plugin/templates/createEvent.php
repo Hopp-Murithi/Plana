@@ -25,3 +25,14 @@
         <input type="submit" value="Create Event" name="submit">
     </form>
 </div>
+<style>
+     @import url('https://fonts.googleapis.com/css?family=PT+Serif+Caption:400');
+
+.container-create {
+  background: radial-gradient(#9B2915, #DFDFDF) no-repeat center center fixed;
+  font-size: 16px;
+  font-family: 'PT Serif Caption', serif;
+  line-height: 1.5;
+}
+
+</style>

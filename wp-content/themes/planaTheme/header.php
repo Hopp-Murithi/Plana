@@ -30,7 +30,8 @@
       <a class="nav-link tickets logout"  style="color:white;" href="http://localhost/plana/index.php/my-tickets/">My Tickets</a>
       </div>
       <div >
-      <a class="nav-link tickets logout" href="<?php echo wp_logout_url(); ?>">Logout</a> </div>
+      <a class="nav-link tickets logout" href="<?php echo wp_logout_url( "http://localhost/plana/" ); ?>Logout</a>
+      </div>
       </div>
     </nav>';
   } else {

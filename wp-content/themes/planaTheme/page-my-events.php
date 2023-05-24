@@ -1,5 +1,47 @@
 <?php
-get_header();
+get_header();?>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=PT+Serif+Caption:400');
+
+    html {
+        font-size: 100%;
+    }
+
+    body {
+        font-size: 16px;
+        font-family: 'PT Serif Caption', serif;
+        line-height: 1.5;
+        background: radial-gradient(#EE0A0A, #ffffff) no-repeat center center fixed;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+    }
+
+    table {
+        background-color: antiquewhite;
+        color: black;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 4px 12px;
+    }
+</style>
+
+<?php
 global $wpdb;
 $table = $wpdb->prefix . 'events';
 $rawdata = $wpdb->get_results("SELECT * FROM $table");
@@ -75,6 +117,7 @@ if (isset($_GET['event_id']) && isset($_GET['action']) && $_GET['action'] === 'u
     wp_redirect(admin_url('/admin.php?page=update&update_id=' . $event_id));
     exit();
 }
+
 
 get_footer();
 ?>

@@ -35,7 +35,7 @@ if (isset($_POST['purchase_ticket'])) {
 ?>
 
 <div class="container" style="background-color: #ffffff;">
-    <div class="row main-cont">
+      <div class="row main-cont">
         <div class="col-md-6">
             <img src="<?php echo $data[0]->image_url; ?>" alt="Event Image" class="img-fluid image">
             <p style="color: #000000;">Date: <?php echo date('d/m/Y', strtotime($data[0]->date)); ?></p>
@@ -61,6 +61,7 @@ if (isset($_POST['purchase_ticket'])) {
             <h2 style="color: #9B2915;">More details...</h2>
             <p style="color: #000000;"><?php echo $data[0]->description; ?></p>
         </div>
+
     </div>
 </div>
 
@@ -71,11 +72,21 @@ if (isset($_POST['purchase_ticket'])) {
         background-color: #DFDFDF;
     }
 
-    .image {
-        margin-top: 15px;
-        border-radius: 6px;
-        margin-bottom: 6px;
-    }
+er-radius: 6px;
+        
+  .image{
+  margin-top: 15px;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}
+input[type="submit"]{
+ background-color:#EF1212 ;
+  color:#ffffff;
+  padding: 6px;
+  border:0;
+  margin: 8px;
+  border-radius: 6px;
+}
 </style>
 
 <form method="POST" action="">
